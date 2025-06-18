@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Untuk SystemChrome
-import 'pages/home_page.dart';
+import 'pages/login_page.dart'; // Import halaman login
 import 'widgets/connection_status_widget.dart'; // Import widget koneksi
 
 void main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const ConnectionStatusWidget(
         // Wrap aplikasi dengan ConnectionStatusWidget
-        child: HomePage(),
+        child: LoginPage(), // UBAH KE HALAMAN LOGIN INI
       ),
       debugShowCheckedModeBanner: false,
     );

@@ -1,6 +1,9 @@
+// Path: lib/pages/home_page.dart
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'city_selection_page.dart';
-import 'favorite_places_page.dart'; // Import halaman favorit yang baru
+import 'favorite_places_page.dart';
+import 'login_page.dart'; // Import halaman login
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,6 +13,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void _logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLoggedIn', false); // Hapus status login
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginPage()),
+      (Route<dynamic> route) => false, // Hapus semua rute sebelumnya
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +32,6 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.favorite),
             onPressed: () {
-              // Navigasi ke halaman daftar tempat favorit
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -27,6 +39,12 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             },
+          ),
+          IconButton(
+            // Tombol Logout
+            icon: const Icon(Icons.logout),
+            onPressed: _logout,
+            tooltip: 'Logout',
           ),
         ],
       ),
