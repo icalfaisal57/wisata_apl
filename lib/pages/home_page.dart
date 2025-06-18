@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/city.dart';
-import '../database/database_helper.dart';
 import 'city_selection_page.dart';
-import 'tourist_place_detail_page.dart'; // Nanti untuk navigasi ke favorit
+import 'favorite_places_page.dart'; // Import halaman favorit yang baru
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,13 +19,11 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.favorite),
             onPressed: () {
-              // TODO: Navigasi ke halaman daftar tempat favorit
-              // Navigator.push(context, MaterialPageRoute(builder: (context) => FavoritePlacesPage()));
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text(
-                    'Fitur favorit belum diimplementasikan sepenuhnya',
-                  ),
+              // Navigasi ke halaman daftar tempat favorit
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavoritePlacesPage(),
                 ),
               );
             },

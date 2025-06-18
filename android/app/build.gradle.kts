@@ -8,14 +8,16 @@ plugins {
 android {
     namespace = "com.example.wisata_apl"
     compileSdk = flutter.compileSdkVersion
-   
-    ndkVersion = "27.0.12077973" 
+    ndkVersion = "27.0.12077973" // PASTIKAN INI ADA
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString() // PASTIKAN INI ADA
+    }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
