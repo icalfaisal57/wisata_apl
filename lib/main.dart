@@ -1,9 +1,15 @@
-// main.dart
 import 'package:flutter/material.dart';
-import 'package:info_wisata_app/screens/home_screen.dart';
-import 'package:info_wisata_app/utils/app_constants.dart'; // Untuk konstanta seperti UU dan PP
+import 'package:flutter/services.dart'; // Untuk SystemChrome
+import 'pages/home_page.dart';
+import 'widgets/connection_status_widget.dart'; // Import widget koneksi
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Opsional: Untuk memastikan orientasi hanya portrait
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -13,19 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Info Wisata App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      title: 'Info Wisata',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const ConnectionStatusWidget(
+        // Wrap aplikasi dengan ConnectionStatusWidget
+        child: HomePage(),
       ),
-      home: const HomeScreen(),
-      // Tambahkan rute jika ada banyak layar
-      routes: {
-        '/home': (context) => const HomeScreen(),
-        // '/detail_wisata': (context) => const DetailWisataScreen(),
-        // '/favorit': (context) => const FavoriteScreen(),
-        // '/settings': (context) => const SettingsScreen(),
-      },
+      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -30,52 +30,47 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  connectivity_plus: ^6.0.1
-  device_info_plus: ^10.1.0
-  shared_preferences: ^2.2.3
-  sqflite: ^2.3.0 # Tambahkan ini
-  path_provider: ^2.1.3 # Tambahkan ini
-  # http: ^1.2.1
+  
+  # Dependensi yang Anda tambahkan
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  path_provider: ^2.1.1
+  connectivity_plus: ^5.0.2
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.1 # Pastikan versi ini sesuai dengan versi Flutter Anda
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
+# The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
-  uses-material-design: true
+  # The `uses-material-design` flag specifies whether your application supports
+  # the Material Design system.
+  uses-material-design: true # POSISI INI BENAR
 
   # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/database/tourism_database.db
+    - assets/images/ # Penting: Pastikan Anda punya folder ini dan isinya
+
+  # An image asset can be specified like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
+  # For details regarding assets and how to add them to your application, go to
+  # https://flutter.dev/assets-and-images/#from-packages
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
+  # list giving the asset and other descriptors for the font.
+  # For example:
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -89,4 +84,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+  # see https://flutter.dev/custom-fonts/
